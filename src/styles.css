@@ -2,28 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.ng-invalid.ng-touched:not(form) {
-    @apply border border-red-500;
-    /* red */
-}
-
-.field {
-    @apply border border-gray-300 rounded-lg py-1 px-2 w-full h-11 hover:border-blue focus:border-blue focus:outline-none;
-}
-
 .fieldsContainer {
     @apply grid grid-cols-2 gap-5;
 }
 
-.btn {
-    @apply w-full bg-blue hover:bg-blue-700 py-3 text-center text-white rounded-lg font-medium cursor-pointer;
-}
-.btn:disabled {
-    @apply bg-gray-300 cursor-not-allowed text-gray-500;
-}
-
-.error-message {
-    @apply text-red-500;
+.field {
+    @apply border border-gray-300 rounded-lg py-1 px-2 w-full h-11 hover:border-blue focus:border-blue focus:outline-none;
 }
 
 #civility {
@@ -33,4 +17,21 @@
 #civility:invalid,
 #civility option[value=""] {
     color: #999999;
+}
+
+.btn {
+    @apply w-full bg-blue hover:bg-blue-700 py-3 text-center text-white rounded-lg font-medium cursor-pointer;
+}
+
+.btn:disabled {
+    @apply bg-gray-300 cursor-not-allowed text-gray-500;
+}
+
+.ng-invalid.ng-touched:not(form) {
+    @apply border border-red-500;
+    /* red */
+}
+
+.error-message {
+    @apply text-red-500;
 }
