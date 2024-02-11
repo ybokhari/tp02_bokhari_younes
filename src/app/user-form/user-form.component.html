@@ -1,0 +1,165 @@
+<div class="container mx-auto">
+    <div class="flex flex-col lg:flex-row w:10/2 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+        <div class="w-full lg:w-1/2 flex flex-col justify-center p-12 bg-blue">
+            <h1 class="text-white text-4xl mb-3 font-semibold">Commencez votre<br>aventure avec nous.</h1>
+            <div>
+                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
+        <div class="w-full lg:w-1/2 py-16 px-12" [hidden]="submitted">
+            <h2 class="text-3xl mb-4 font-bold">Créer un compte</h2>
+            <p class="mb-4">Créez votre compte. C'est gratuit et ça prend seulement une minute.</p>
+            <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="fieldsContainer">
+                    <div>
+                        <input type="text" id="firstname" placeholder="Prénom" class="field"
+                            [(ngModel)]="user.firstname" name="firstname" #firstname="ngModel" required>
+                        <div [hidden]="firstname.valid || firstname.untouched" class="error-message">Le prénom est requis</div>
+                    </div>
+                    <div>
+                        <input type="text" id="lastname" placeholder="Nom" class="field" [(ngModel)]="user.lastname" name="lastname"
+                            #lastname="ngModel" required>
+                        <div [hidden]="lastname.valid || lastname.untouched" class="error-message">Le nom est requis</div>
+                    </div>
+                </div>
+   
+                <div class="mt-5">
+                    <select id="civility" class="field" [(ngModel)]="user.civility" name="civility" #civility="ngModel" required>
+                        <option class="text-gray-300" value="">Civilité</option>
+                        <option value="Monsieur">Monsieur</option>
+                        <option value="Madame">Madame</option>
+                    </select>
+                    <div [hidden]="civility.valid || civility.untouched" class="error-message">La civilité est requise</div>
+                </div>
+
+                <div class="fieldsContainer mt-5">
+                    <div class="form-group">
+                        <input type="text" id="country" placeholder="Pays" class="field" [(ngModel)]="user.country" name="country" #country="ngModel"
+                            required>
+                        <div [hidden]="country.valid || country.untouched" class="error-message">Le pays est requis</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="city" placeholder="Ville" class="field" [(ngModel)]="user.city" name="city" #city="ngModel" required>
+                        <div [hidden]="city.valid || city.untouched" class="error-message">La ville est requise</div>
+                    </div>
+                </div>
+
+                <div class="fieldsContainer mt-5">
+                    <div class="form-group">
+                        <input type="text" id="address" placeholder="Adresse" class="field" [(ngModel)]="user.address" name="address" #address="ngModel"
+                            required>
+                        <div [hidden]="address.valid || address.untouched" class="error-message">L'adresse est requise</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="postalCode" placeholder="Code postal" class="field" [(ngModel)]="user.postalCode" name="postalCode"
+                            #postalCode="ngModel" required>
+                        <div [hidden]="postalCode.valid || postalCode.untouched" class="error-message">Le code postal est requis
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fieldsContainer mt-5">
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Téléphone" class="field" [(ngModel)]="user.phone" name="phone" #phone="ngModel" required>
+                        <div [hidden]="phone.valid || phone.untouched" class="error-message">Le téléphone est requis</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email" class="field" [(ngModel)]="user.email" name="email" #email="ngModel" required>
+                        <div [hidden]="email.valid || email.untouched" class="error-message">L'email est requis</div>
+                    </div>
+                </div>
+
+                <div class="fieldsContainer mt-5">
+                    <div class="form-group">
+                        <input type="text" id="login" placeholder="Identifiant" class="field" [(ngModel)]="user.login" name="login" #login="ngModel" required>
+                        <div [hidden]="login.valid || login.untouched" class="error-message">L'identifiant est requis</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Mot de passe" class="field" [(ngModel)]="user.password" name="password"
+                            #password="ngModel" required>
+                        <div [hidden]="password.valid || password.untouched" class="error-message">Le mot de passe est requis
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <input type="checkbox" class="border border-gray-300" required>
+                    <span class="ml-1">J'ai lu et j'accepte les <a class="text-blue font-semibold" href="#">termes et conditions</a>.</span>
+                </div>
+
+                <div class="mt-5">
+                    <button class="btn" type="submit" [disabled]="!userForm.form.valid">Créer mon compte</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="w-full lg:w-1/2 py-16 px-12" [hidden]="!submitted">
+            <h2 class="text-3xl mb-4 font-bold">Récapitulatif</h2>
+            <p class="mb-4">Nous avons bien enregistré vos informations.</p>
+            <div class="fieldsContainer">
+                <div>
+                    <div class="font-semibold">Prénom</div>
+                    <div>{{ user.firstname }}</div>
+                </div>
+                <div>
+                    <div class="font-semibold">Nom</div>
+                    <div>{{ user.lastname }}</div>
+                </div>
+            </div>
+
+            <div class="fieldsContainer mt-5">
+                <div>
+                    <div class="font-semibold">Civilité</div>
+                    <div>{{ user.civility }}</div>
+                </div>
+            </div>
+
+            <div class="fieldsContainer mt-5">
+                <div>
+                    <div class="font-semibold">Pays</div>
+                    <div>{{ user.country }}</div>
+                </div>
+                <div>
+                    <div class="font-semibold">Ville</div>
+                    <div>{{ user.city }}</div>
+                </div>
+            </div>
+
+            <div class="fieldsContainer mt-5">
+                <div>
+                    <div class="font-semibold">Adresse</div>
+                    <div>{{ user.address }}</div>
+                </div>
+                <div>
+                    <div class="font-semibold">Code postal</div>
+                    <div>{{ user.postalCode }}</div>
+                </div>
+            </div>
+
+            <div class="fieldsContainer mt-5">
+                <div>
+                    <div class="font-semibold">Téléphone</div>
+                    <div>{{ user.phone }}</div>
+                </div>
+                <div>
+                    <div class="font-semibold">Email</div>
+                    <div>{{ user.email }}</div>
+                </div>
+            </div>
+
+            <div class="fieldsContainer mt-5">
+                <div>
+                    <div class="font-semibold">Identifiant</div>
+                    <div>{{ user.login }}</div>
+                </div>
+                <div>
+                    <div class="font-semibold">Mot de passe</div>
+                    <div>************</div>
+                </div>
+            </div>
+
+            <br>
+            <button type="button" class="btn" (click)="submitted=false">Modifier</button>
+        </div>
+    </div>
+</div>
