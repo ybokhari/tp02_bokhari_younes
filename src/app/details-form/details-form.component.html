@@ -1,0 +1,68 @@
+<div class="w-full py-16 px-12" [hidden]="!submitted">
+    <h2 class="text-3xl mb-4 font-bold">Récapitulatif</h2>
+    <p class="mb-4">Nous avons bien enregistré vos informations.</p>
+    <div class="fieldsContainer">
+        <div>
+            <div class="font-semibold">Prénom</div>
+            <div>{{ user.firstname }}</div>
+        </div>
+        <div>
+            <div class="font-semibold">Nom</div>
+            <div>{{ user.lastname }}</div>
+        </div>
+    </div>
+
+    <div class="fieldsContainer mt-5">
+        <div>
+            <div class="font-semibold">Civilité</div>
+            <div>{{ user.civility }}</div>
+        </div>
+    </div>
+
+    <div class="fieldsContainer mt-5">
+        <div>
+            <div class="font-semibold">Pays</div>
+            <div>{{ user.country }}</div>
+        </div>
+        <div>
+            <div class="font-semibold">Ville</div>
+            <div>{{ user.city }}</div>
+        </div>
+    </div>
+
+    <div class="fieldsContainer mt-5">
+        <div>
+            <div class="font-semibold">Adresse</div>
+            <div>{{ user.address }}</div>
+        </div>
+        <div>
+            <div class="font-semibold">Code postal</div>
+            <div>{{ user.postalCode }}</div>
+        </div>
+    </div>
+
+    <div class="fieldsContainer mt-5">
+        <div>
+            <div class="font-semibold">Téléphone</div>
+            <div>{{ user.phone }}</div>
+        </div>
+        <div>
+            <div class="font-semibold">Email</div>
+            <div>{{ user.email }}</div>
+        </div>
+    </div>
+
+    <div class="fieldsContainer mt-5">
+        <div>
+            <div class="font-semibold">Identifiant</div>
+            <div>{{ user.login }}</div>
+        </div>
+        <div>
+            <div class="font-semibold">Mot de passe</div>
+            <div>************</div>
+        </div>
+    </div>
+
+    <br>
+    <button type="button" class="btn" (click)="onEditClick()">Modifier</button>
+</div>
